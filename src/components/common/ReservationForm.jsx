@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import "./ReservationForm.css";
 
 const initialForm = {
@@ -49,6 +49,20 @@ export default function ReservationForm() {
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const rehearsalTimeRef = useRef(null);
+  const performanceTimeRef = useRef(null);
+
+  const openTimePicker = (inputRef) => {
+    const input = inputRef.current;
+    if (!input) return;
+
+    input.focus();
+
+    if (typeof input.showPicker === "function") {
+      input.showPicker();
+    }
+  };
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -163,11 +177,13 @@ export default function ReservationForm() {
             <div className="form-group">
               <label htmlFor="rehearsalStartTime">리허설 시작시간 </label>
               <input
+                ref={rehearsalTimeRef}
                 id="rehearsalStartTime"
                 name="rehearsalStartTime"
                 type="time"
                 value={form.rehearsalStartTime}
                 onChange={handleChange}
+                onClick={() => openTimePicker(rehearsalTimeRef)}
               />
               {errors.rehearsalStartTime && (
                 <p className="error-text">{errors.rehearsalStartTime}</p>
@@ -177,11 +193,13 @@ export default function ReservationForm() {
             <div className="form-group">
               <label htmlFor="performanceStartTime">공연 시작시간 </label>
               <input
+                ref={performanceTimeRef}
                 id="performanceStartTime"
                 name="performanceStartTime"
                 type="time"
                 value={form.performanceStartTime}
                 onChange={handleChange}
+                onClick={() => openTimePicker(performanceTimeRef)}
               />
               {errors.performanceStartTime && (
                 <p className="error-text">{errors.performanceStartTime}</p>

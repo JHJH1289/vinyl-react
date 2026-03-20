@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./AdminLogin.css";
 
 const initialForm = {
@@ -25,6 +25,7 @@ function AdminLogin() {
   const [form, setForm] = useState(initialForm);
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const navigate = useNavigate();
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -60,7 +61,8 @@ function AdminLogin() {
       // localStorage.setItem("accessToken", response.data.accessToken);
 
       console.log("로그인 요청", form);
-      alert("로그인 API 연결 전입니다.");
+
+      navigate("/admin/dashboard");
     } catch (error) {
       console.error("로그인 실패", error);
       alert("로그인에 실패했습니다.");
