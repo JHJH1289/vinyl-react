@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { Link } from "react-router-dom";
 import "./AdminDashboard.css";
 import initialReservations from "../mock/reservations";
 
@@ -52,6 +53,14 @@ function AdminDashboard() {
 
   return (
     <section className="admin-dashboard">
+      <div className="admin-dashboard-topbar">
+        <Link to="/" className="admin-dashboard-logo">
+          THE VINYL
+          <br />
+          UNDERGROUND
+        </Link>
+      </div>
+
       <div className="admin-dashboard-container">
         <div className="admin-dashboard-header">
           <div>
@@ -94,13 +103,16 @@ function AdminDashboard() {
                 <tr>
                   <th>행사명</th>
                   <th>대표자명</th>
+                  <th className="desktop-only">전화번호</th>
+                  <th className="desktop-only">리허설</th>
+                  <th className="desktop-only">공연</th>
                   <th>신청일시</th>
                 </tr>
               </thead>
               <tbody>
                 {requestedReservations.length === 0 ? (
                   <tr>
-                    <td colSpan="3" className="empty-row">
+                    <td colSpan="6" className="empty-row">
                       예약 요청이 없습니다.
                     </td>
                   </tr>
@@ -117,6 +129,9 @@ function AdminDashboard() {
                         </button>
                       </td>
                       <td>{item.representativeName}</td>
+                      <td className="desktop-only">{item.phone}</td>
+                      <td className="desktop-only">{item.rehearsalStartTime}</td>
+                      <td className="desktop-only">{item.performanceStartTime}</td>
                       <td>{item.createdAt}</td>
                     </tr>
                   ))
@@ -142,13 +157,16 @@ function AdminDashboard() {
                 <tr>
                   <th>행사명</th>
                   <th>대표자명</th>
+                  <th className="desktop-only">전화번호</th>
+                  <th className="desktop-only">리허설</th>
+                  <th className="desktop-only">공연</th>
                   <th>신청일시</th>
                 </tr>
               </thead>
               <tbody>
                 {approvedReservations.length === 0 ? (
                   <tr>
-                    <td colSpan="3" className="empty-row">
+                    <td colSpan="6" className="empty-row">
                       승인된 예약이 없습니다.
                     </td>
                   </tr>
@@ -165,6 +183,9 @@ function AdminDashboard() {
                         </button>
                       </td>
                       <td>{item.representativeName}</td>
+                      <td className="desktop-only">{item.phone}</td>
+                      <td className="desktop-only">{item.rehearsalStartTime}</td>
+                      <td className="desktop-only">{item.performanceStartTime}</td>
                       <td>{item.createdAt}</td>
                     </tr>
                   ))

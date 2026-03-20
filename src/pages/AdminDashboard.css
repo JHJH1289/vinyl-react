@@ -1,9 +1,35 @@
 .admin-dashboard {
   min-height: 100vh;
+  padding: 0 20px 60px;
+  box-sizing: border-box;
   background: #0d0b12;
   color: #f5f1e8;
-  padding: 120px 20px 60px;
-  box-sizing: border-box;
+}
+
+.admin-dashboard-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 32px 0 24px;
+}
+
+.admin-dashboard-logo {
+  color: #f5f1e8;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "KBLJump", sans-serif;
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  line-height: 1.15;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.admin-dashboard-logo:hover {
+  color: #c8a96b;
+  transform: translateY(-1px);
 }
 
 .admin-dashboard-container {
@@ -17,10 +43,10 @@
 
 .admin-dashboard-label {
   margin: 0 0 8px;
+  color: #c8a96b;
   font-size: 0.85rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: #c8a96b;
 }
 
 .admin-dashboard-title {
@@ -46,9 +72,9 @@
 .admin-summary-card {
   padding: 20px;
   border-radius: 20px;
+  box-sizing: border-box;
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
-  box-sizing: border-box;
 }
 
 .summary-card-label {
@@ -68,8 +94,8 @@
 
 .admin-section-header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   gap: 12px;
   margin-bottom: 12px;
 }
@@ -100,28 +126,28 @@
 
 .admin-table {
   width: 100%;
+  min-width: 960px;
   border-collapse: collapse;
-  min-width: 640px;
 }
 
 .admin-table th,
 .admin-table td {
   padding: 16px 14px;
   text-align: left;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   vertical-align: middle;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .admin-table th {
-  font-size: 0.95rem;
   color: rgba(245, 241, 232, 0.8);
-  background: rgba(255, 255, 255, 0.03);
+  font-size: 0.95rem;
   white-space: nowrap;
+  background: rgba(255, 255, 255, 0.03);
 }
 
 .admin-table td {
-  font-size: 0.95rem;
   color: #f5f1e8;
+  font-size: 0.95rem;
 }
 
 .event-name-cell {
@@ -129,29 +155,33 @@
 }
 
 .event-name-button {
+  padding: 0;
   border: none;
   background: transparent;
-  padding: 0;
   color: #f5f1e8;
   font: inherit;
   font-weight: 600;
-  cursor: pointer;
   text-align: left;
+  cursor: pointer;
 }
 
 .event-name-button:hover {
   color: #c8a96b;
 }
 
-.approve-button {
+.approve-button,
+.cancel-button {
+  padding: 10px 14px;
   border: none;
   border-radius: 12px;
-  padding: 10px 14px;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.approve-button {
   background: #1f6918;
   color: #6af076;
-  font-weight: 700;
-  cursor: pointer;
-  white-space: nowrap;
 }
 
 .approve-button:disabled {
@@ -160,14 +190,8 @@
 }
 
 .cancel-button {
-  border: none;
-  border-radius: 12px;
-  padding: 10px 14px;
   background: rgba(255, 95, 95, 0.16);
   color: #ff9b9b;
-  font-weight: 700;
-  cursor: pointer;
-  white-space: nowrap;
 }
 
 .cancel-button:hover {
@@ -183,23 +207,23 @@
 .admin-modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.58);
+  z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 20px;
-  z-index: 1000;
   box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.58);
 }
 
 .admin-modal {
   width: 100%;
   max-width: 560px;
+  overflow: hidden;
+  border: 1px solid #2a2436;
   border-radius: 20px;
   background: #15111d;
-  border: 1px solid #2a2436;
   box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35);
-  overflow: hidden;
 }
 
 .admin-modal-header {
@@ -259,7 +283,17 @@
 
 @media (max-width: 767px) {
   .admin-dashboard {
-    padding: 96px 16px 40px;
+    padding: 0 16px 40px;
+  }
+
+  .admin-dashboard-topbar {
+    padding: 24px 0 20px;
+  }
+
+  .admin-dashboard-logo {
+    font-size: 1.05rem;
+    letter-spacing: 0.12em;
+    line-height: 1.1;
   }
 
   .admin-dashboard-title {
@@ -302,8 +336,8 @@
   }
 
   .admin-table-wrap {
-    border-radius: 16px;
     overflow-x: hidden;
+    border-radius: 16px;
   }
 
   .admin-table {
@@ -318,21 +352,6 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-  }
-
-  .admin-table th:nth-child(1),
-  .admin-table td:nth-child(1) {
-    width: 44%;
-  }
-
-  .admin-table th:nth-child(2),
-  .admin-table td:nth-child(2) {
-    width: 28%;
-  }
-
-  .admin-table th:nth-child(3),
-  .admin-table td:nth-child(3) {
-    width: 28%;
   }
 
   .admin-modal-overlay {
@@ -376,7 +395,17 @@
 
 @media (max-width: 420px) {
   .admin-dashboard {
-    padding: 84px 12px 28px;
+    padding: 0 12px 28px;
+  }
+
+  .admin-dashboard-topbar {
+    padding: 20px 0 16px;
+  }
+
+  .admin-dashboard-logo {
+    font-size: 0.92rem;
+    letter-spacing: 0.1em;
+    line-height: 1.1;
   }
 
   .admin-dashboard-title {
@@ -396,7 +425,7 @@
 
   .approve-button,
   .cancel-button {
+    padding: 8px;
     font-size: 0.78rem;
-    padding: 8px 8px;
   }
 }
