@@ -1,0 +1,7 @@
+@font-face {
+  font-family: 'KBLJump';
+  src: url('../assets/fonts/KBLJump_EB_Extended.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}

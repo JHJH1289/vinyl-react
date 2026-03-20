@@ -1,0 +1,143 @@
+.admin-login-section {
+  min-height: 100vh;
+  padding: 120px 20px 80px;
+  background-color: #0d0b12;
+  color: #f5f3f8;
+}
+
+.admin-login-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.admin-login-card {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 32px 28px;
+  border: 1px solid #2a2436;
+  background-color: #15111d;
+}
+
+.admin-login-label {
+  margin: 0 0 10px;
+  color: #f4d03f;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.admin-login-title {
+  margin: 0;
+  color: #f5f3f8;
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.admin-login-description {
+  margin: 14px 0 0;
+  color: #cfc9d8;
+  font-size: 0.96rem;
+  line-height: 1.7;
+}
+
+.admin-login-form {
+  margin-top: 28px;
+}
+
+.admin-login-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.admin-login-group label {
+  margin-bottom: 8px;
+  color: #f5f3f8;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.admin-login-group input {
+  width: 100%;
+  padding: 13px 14px;
+  border: 1px solid #2a2436;
+  background-color: #0d0b12;
+  color: #f5f3f8;
+  font-size: 0.95rem;
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.admin-login-group input::placeholder {
+  color: #8f879e;
+}
+
+.admin-login-group input:focus {
+  border-color: #f4d03f;
+  box-shadow: 0 0 0 1px #f4d03f;
+}
+
+.admin-login-error {
+  margin: 8px 0 0;
+  color: #ff8c8c;
+  font-size: 0.85rem;
+}
+
+.admin-login-button {
+  width: 100%;
+  padding: 14px 18px;
+  border: 1px solid #f4d03f;
+  background-color: #f4d03f;
+  color: #0d0b12;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.admin-login-button:hover {
+  background-color: transparent;
+  color: #f4d03f;
+}
+
+.admin-login-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.admin-login-footer {
+  margin-top: 18px;
+  text-align: center;
+}
+
+.admin-login-home-link {
+  color: #cfc9d8;
+  font-size: 0.92rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.admin-login-home-link:hover {
+  color: #f4d03f;
+}
+
+@media (max-width: 767px) {
+  .admin-login-section {
+    padding: 100px 16px 64px;
+  }
+
+  .admin-login-card {
+    padding: 24px 20px;
+  }
+
+  .admin-login-title {
+    font-size: 1.7rem;
+  }
+}
